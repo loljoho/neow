@@ -14,7 +14,7 @@ class ErgastRaceAPI(Resource):
     """
 
     def get(self):
-        r = requests.get('http://ergast.com/api/f1/current/last/races.json')
+        r = requests.get('http://ergast.com/api/f1/current/races.json')
         return r.json()
 
 
