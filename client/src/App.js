@@ -1,10 +1,5 @@
-import Dashboard from './containers/Layout/Dashboard';
+import Dashboard from './containers/Dashboard';
 import API from './utils/API';
-
-API.getRaces()
-  .then(res => {
-    console.log(res);
-  });
 
 function App() {
   return (
