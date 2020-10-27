@@ -1,4 +1,4 @@
-import Dashboard from './containers/Dashboard/Dashboard';
+import Dashboard from './containers/Layout/Dashboard';
 import API from './utils/API';
 
 API.getRaces()
