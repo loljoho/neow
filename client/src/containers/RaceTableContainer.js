@@ -74,7 +74,7 @@ export class RaceTableContainer extends Component {
         </>
       );
     } else {
-      console.log(`data: ${rows}`);
+      // console.log(`data: ${rows}`);
       return (
         <>
           <Title>Race Schedule</Title>
@@ -91,7 +91,6 @@ export class RaceTableContainer extends Component {
             </TableHead>
             <TableBody>
               {rows.map((row, index) => {
-                console.log(typeof row);
                 let flag = Flags.getByCountry(row.Circuit.Location.country).iso2;
                 let date = moment(`${row.date}T${row.time}`);
                 return (

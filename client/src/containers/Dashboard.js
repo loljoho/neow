@@ -19,7 +19,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from '../components/listItems';
-import Chart from '../components/Chart';
+import ResultChartContainer from './ResultChartContainer';
 import Deposits from '../components/Deposits';
 import RaceTableContainer from './RaceTableContainer';
 
@@ -117,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 240,
+    height: 360,
   },
 }));
 
@@ -189,7 +189,7 @@ export default function Dashboard() {
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
-                <Chart />
+                <ResultChartContainer />
               </Paper>
             </Grid>
             {/* Recent Deposits */}

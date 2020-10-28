@@ -8,6 +8,15 @@ let API = {
     return axios.get(`https://ergast.com/api/f1/current/races.json`)
       .then(response => response.data.MRData.RaceTable.Races);
   },
+  getNextRace: () => {
+    return axios.get(`https://ergast.com/api/f1/current/next/races.json`)
+      .then(response => response.MRData);
+  },
+  getResults: () => {
+    // return fetch(`${BASE_URL}/results`)
+    return axios.get(`https://ergast.com/api/f1/current/last/results.json`)
+      .then(response => response.data.MRData.RaceTable.Races);
+  },
 
 
 
