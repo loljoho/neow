@@ -11,13 +11,13 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import API from '../utils/API';
-import Title from '../components/Title';
+import Title from './Title';
 
 let formatYAxis = (tick) => {
   return 10 - tick;
 }
 
-export default function ResultChartContainer() {
+export default function ResultChart() {
   const [data, setData] = useState([]);
 
   useEffect(() => {

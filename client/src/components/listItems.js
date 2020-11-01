@@ -4,11 +4,14 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import SpeedIcon from '@material-ui/icons/Speed';
 import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+import TimerIcon from '@material-ui/icons/Timer';
+import TableChartIcon from '@material-ui/icons/TableChart';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import InfoIcon from '@material-ui/icons/Info';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 export const mainListItems = (
   <div>
@@ -20,51 +23,57 @@ export const mainListItems = (
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <SpeedIcon />
       </ListItemIcon>
-      <ListItemText primary="Orders" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Customers" />
+      <ListItemText primary="Races" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
-      <ListItemText primary="Reports" />
+      <ListItemText primary="Results" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <LayersIcon />
+        <TableChartIcon />
       </ListItemIcon>
-      <ListItemText primary="Integrations" />
+      <ListItemText primary="Standings" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <TimerIcon />
+      </ListItemIcon>
+      <ListItemText primary="Drivers" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <PeopleIcon />
+      </ListItemIcon>
+      <ListItemText primary="Constructors" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <LocationOnIcon />
+      </ListItemIcon>
+      <ListItemText primary="Circuits" />
     </ListItem>
   </div>
 );
 
 export const secondaryListItems = (
   <div>
-    <ListSubheader inset>Saved reports</ListSubheader>
+    <ListSubheader inset>Meta</ListSubheader>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <InfoIcon />
       </ListItemIcon>
-      <ListItemText primary="Current month" />
+      <ListItemText primary="Info" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <GitHubIcon />
       </ListItemIcon>
-      <ListItemText primary="Last quarter" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Year-end sale" />
+      <ListItemText primary="GitHub" />
     </ListItem>
   </div>
 );

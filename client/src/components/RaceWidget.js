@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Deposits() {
+export default function RaceWidget() {
   const classes = useStyles();
   const [data, setData] = useState({});
 

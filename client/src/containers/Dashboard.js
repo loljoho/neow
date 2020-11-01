@@ -19,9 +19,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from '../components/listItems';
-import ResultChartContainer from './ResultChartContainer';
+import ResultChart from '../components/ResultChart';
 import Deposits from '../components/Deposits';
-import RaceTableContainer from './RaceTableContainer';
+import RaceTable from '../components/RaceTable';
 
 function Copyright() {
   return (
@@ -189,19 +189,19 @@ export default function Dashboard() {
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
-                <ResultChartContainer />
+                <ResultChart />
               </Paper>
             </Grid>
-            {/* Recent Deposits */}
+            {/* Widgets */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Deposits />
               </Paper>
             </Grid>
-            {/* Recent Orders */}
+            {/* Races */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <RaceTableContainer />
+                <RaceTable />
               </Paper>
             </Grid>
           </Grid>

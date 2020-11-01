@@ -7,7 +7,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Title from '../components/Title';
+import Title from './Title';
 import API from '../utils/API';
 import Flags from '../utils/Flags';
 
@@ -15,7 +15,7 @@ function preventDefault(event) {
   event.preventDefault();
 }
 
-export class RaceTableContainer extends Component {
+export class RaceTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -121,4 +121,4 @@ export class RaceTableContainer extends Component {
   }
 };
 
-export default RaceTableContainer;
+export default RaceTable;
