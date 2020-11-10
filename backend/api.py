@@ -1,10 +1,17 @@
-from flask import Flask, jsonify
+from flask import Flask
 from flask_restful import Resource, Api
-from flask_cors import CORS
+from waitress import serve
+import os
 import requests
 
-app = Flask(__name__)
-CORS(app)
+app = Flask(__name__, static_folder='../build', static_url_path='')
+
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+
+
 api = Api(app)
 
 
@@ -103,15 +110,21 @@ class ErgastStatusAPI(Resource):
 
 
 # API Routes
-api.add_resource(ErgastRaceAPI, '/races')
-api.add_resource(ErgastResultAPI, '/results')
-api.add_resource(ErgastQualifyingAPI, '/qualifying')
-api.add_resource(ErgastDriverAPI, '/drivers')
-api.add_resource(ErgastTeamAPI, '/teams')
-api.add_resource(ErgastDriverStandingAPI, '/driverStandings')
-api.add_resource(ErgastConstructorStandingAPI, '/constructorStandings')
-api.add_resource(ErgastCircuitAPI, '/circuits')
-api.add_resource(ErgastStatusAPI, '/status')
+api.add_resource(ErgastRaceAPI, '/api/races')
+api.add_resource(ErgastResultAPI, '/api/results')
+api.add_resource(ErgastQualifyingAPI, '/api/qualifying')
+api.add_resource(ErgastDriverAPI, '/api/drivers')
+api.add_resource(ErgastTeamAPI, '/api/teams')
+api.add_resource(ErgastDriverStandingAPI, '/api/driverStandings')
+api.add_resource(ErgastConstructorStandingAPI, '/api/constructorStandings')
+api.add_resource(ErgastCircuitAPI, '/api/circuits')
+api.add_resource(ErgastStatusAPI, '/api/status')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+
+    env = os.environ.get('FLASK_ENV', 'development')
+    if env == 'production':
+        serve(app, port=port)
+    else:
+        app.run(debug=True, port=port)
