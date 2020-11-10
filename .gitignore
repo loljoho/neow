@@ -12,6 +12,11 @@
 
 
 
+*.code-workspace
+.vscode
+
+
+
 
 # -------------------------------
 #   Python
