@@ -4,7 +4,7 @@
 FROM node:14.15
 
 # set working directory
-WORKDIR /app
+WORKDIR /app/client
 
 # add `/usr/src/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
