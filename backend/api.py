@@ -1,8 +1,11 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from waitress import serve
+from dotenv import load_dotenv
 import os
 import requests
+
+load_dotenv()
 
 app = Flask(__name__, static_folder='../build', static_url_path='')
 
