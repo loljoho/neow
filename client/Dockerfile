@@ -1,7 +1,7 @@
 # Dockerfile for Front End React application
 
 # base image
-FROM node:latest
+FROM node:14.15
 
 # set working directory
 WORKDIR /app
@@ -11,8 +11,6 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 # copy package.json and install dependencies
 COPY package*.json ./
-# RUN npm install --silent
+RUN npm install --silent
 RUN npm install react-scripts@4.0.0 -g --silent
-
-# start app
-CMD ["npm", "run watch-client"]
+RUN npm install cra-build-watch@3.4.0 -g --silent

@@ -19,7 +19,3 @@ RUN pip install -r requirements.txt
 # public nudity, i guess
 EXPOSE 5000
 COPY . ./
-
-# start app
-# wut?
-CMD ["flask", "run"]
