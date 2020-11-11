@@ -13,6 +13,26 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import InfoIcon from '@material-ui/icons/Info';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 
+import { Route, MemoryRouter } from 'react-router';
+import { Link as RouterLink } from 'react-router-dom';
+
+function ListItemLink(props) {
+  const { icon, primary, to } = props;
+  const renderLink = React.useMemo(
+    () => React.forwardRef((itemProps, ref) => <RouterLink to={to} ref={ref} {...itemProps} />),
+    [to],
+  );
+
+  return (
+    <li>
+      <ListItem button component={renderLink}>
+        {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
+        <ListItemText primary={primary} />
+      </ListItem>
+    </li>
+  );
+}
+
 export const mainListItems = (
   <div>
     <ListItem button>
@@ -21,12 +41,13 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
+    <ListItemLink to="/race" primary="Races" icon={<SpeedIcon />} />
+    {/* <ListItem button> */}
+      {/* <ListItemIcon>
         <SpeedIcon />
       </ListItemIcon>
-      <ListItemText primary="Races" />
-    </ListItem>
+      <ListItemText primary="Races" /> */}
+    {/* </ListItem> */}
     <ListItem button>
       <ListItemIcon>
         <BarChartIcon />
