@@ -15,4 +15,4 @@ COPY package*.json ./
 RUN npm install react-scripts@4.0.0 -g --silent
 
 # start app
-CMD ["npm", "run watch-frontend"]
+CMD ["npm", "run watch-client"]
