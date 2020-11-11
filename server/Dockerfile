@@ -10,8 +10,7 @@ WORKDIR /app
 ENV FLASK_APP=api.py
 ENV FLASK_RUN_HOST=0.0.0.0
 
-# install gcc, other dependencies
-RUN apk add --no-cache gcc musl-dev linux-headers
+# install gcc, other dependencies???
 
 # copy requirements and install dependencies
 COPY requirements.txt ./
