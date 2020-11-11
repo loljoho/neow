@@ -1,15 +1,17 @@
 version: "3.8"
 services:
+  # Frontend React Application
   client:
-    build: .
+    build: ./client
     ports:
       - 3000:3000
     volumes:
-      - ./src:/app
-      - ./node_modules:/app/node_modules
+      - ./client:/app
+      - ./client/node_modules:/app/node_modules
     depends_on:
       - server
 
+  # Backend Flask Application
   server:
     build: ./server
     volumes:
