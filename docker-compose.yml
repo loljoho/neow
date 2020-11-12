@@ -4,16 +4,20 @@ services:
   # Backend Flask Application
   server:
     build: ./server
+    container_name: neow_server
     command: ["flask", "run", "--host=0.0.0.0"]
+    ports:
+      - 5000:5000
     volumes:
       - ./server:/app
       - ./client:/app/client
-    ports:
-      - 5000:5000
+    depends_on:
+      - db
 
   # Frontend React Application
   client:
     build: ./client
+    container_name: neow_client
     command: ["npm", "start"]
     ports:
       - 3000:3000
@@ -22,3 +26,17 @@ services:
       - ./client/node_modules:/app/client/node_modules
     depends_on:
       - server
+
+  # PostgreSQL Database
+  db:
+    build: ./db
+    container_name: neow_postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=neowdb
+      - POSTGRES_USER=neowuser
+      - POSTGRES_PASSWORD=grapesoda
+    volumes:
+      - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
