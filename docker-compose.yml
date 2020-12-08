@@ -11,8 +11,8 @@ services:
     volumes:
       - ./server:/app
       - ./client:/app/client
-    depends_on:
-      - db
+    # depends_on:
+    # - db
 
   # Frontend React Application
   client:
@@ -28,15 +28,15 @@ services:
       - server
 
   # PostgreSQL Database
-  db:
-    build: ./db
-    container_name: neow_postgres
-    restart: always
-    ports:
-      - 5432:5432
-    environment:
-      - POSTGRES_DB=neowdb
-      - POSTGRES_USER=neowuser
-      - POSTGRES_PASSWORD=grapesoda
-    volumes:
-      - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+  # db:
+  # build: ./db
+  # container_name: neow_postgres
+  # restart: always
+  # ports:
+  # - 5432:5432
+  # environment:
+  # - POSTGRES_DB=neowdb
+  # - POSTGRES_USER=neowuser
+  # - POSTGRES_PASSWORD=grapesoda
+  # volumes:
+  # - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
