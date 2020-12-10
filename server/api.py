@@ -1,18 +1,52 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask_restful import Resource, Api
 from waitress import serve
+from dotenv import load_dotenv
 import os
 import requests
 
-app = Flask(__name__, static_folder='../build', static_url_path='')
+load_dotenv()
+
+app = Flask(__name__,
+            static_folder='client/build',
+            static_url_path='')
 
 
 @app.route('/')
 def index():
-    return app.send_static_file('index.html')
+    return send_from_directory(app.static_folder, 'index.html')
+    # return app.send_static_file('index.html')
 
 
 api = Api(app)
+
+
+class DebugAPI(Resource):
+    """
+    Debug API
+    """
+
+    def get(self):
+        return os.getcwd() + ' - ' + os.path.abspath(os.getcwd())
+        # return os.listdir(app.static_folder)
+
+
+class DebugDirAPI(Resource):
+    """
+    DebugDir API
+    """
+
+    def get(self, directory):
+        return os.listdir(directory + '/')
+
+
+class DebugSubdirAPI(Resource):
+    """
+    DebugSubdir API
+    """
+
+    def get(self, directory, subdirectory):
+        return os.listdir(directory + '/' + subdirectory + '/')
 
 
 class ErgastRaceAPI(Resource):
@@ -110,6 +144,9 @@ class ErgastStatusAPI(Resource):
 
 
 # API Routes
+api.add_resource(DebugAPI, '/debug')
+api.add_resource(DebugDirAPI, '/debug/<directory>')
+api.add_resource(DebugSubdirAPI, '/debug/<directory>/<subdirectory>')
 api.add_resource(ErgastRaceAPI, '/api/races')
 api.add_resource(ErgastResultAPI, '/api/results')
 api.add_resource(ErgastQualifyingAPI, '/api/qualifying')
