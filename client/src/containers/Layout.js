@@ -132,7 +132,6 @@ export default function Layout() {
   const toggleDrawer = () => {
     setOpen(!open);
   };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <Router>
