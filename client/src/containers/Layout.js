@@ -12,10 +12,13 @@ import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
+import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
+import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -23,6 +26,20 @@ import { mainListItems, secondaryListItems } from '../components/listItems';
 
 import RacePage from '../pages/RacePage';
 import OverviewPage from '../pages/OverviewPage';
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        Nnnneeooww!
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+
 
 const drawerWidth = 240;
 
@@ -180,11 +197,16 @@ export default function Layout() {
       {/* Main Content */}
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <Switch>
-          <Route exact path="/" render={() => (<OverviewPage />)} />
-          <Route path="/race" render={() => (<RacePage />)} />
-          <Redirect to="/" />
-        </Switch>
+        <Container maxWidth="lg" className={classes.container}>
+          <Switch>
+            <Route exact path="/" render={() => (<OverviewPage />)} />
+            <Route path="/race" render={() => (<RacePage />)} />
+            <Redirect to="/" />
+          </Switch>
+          <Box pt={4}>
+            <Copyright />
+          </Box>
+        </Container>
       </main>
     </div>
     </Router>

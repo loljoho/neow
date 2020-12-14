@@ -1,26 +1,9 @@
 import * as React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
 import { connect } from 'react-redux';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Nnnneeooww!
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const drawerWidth = 240;
 
@@ -109,35 +92,29 @@ const useStyles = makeStyles((theme) => ({
 
 export const RacePage = () => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
-    <Container maxWidth="lg" className={classes.container}>
-      <Grid container spacing={3}>
-        {/* Chart */}
-        <Grid item xs={12} md={8} lg={9}>
-          <Paper className={fixedHeightPaper}>
-            {/* <ResultChart /> */}
-          </Paper>
-        </Grid>
-        {/* Widgets */}
-        <Grid item xs={12} md={4} lg={3}>
-          <Paper className={fixedHeightPaper}>
-            {/* <Deposits /> */}
-          </Paper>
-        </Grid>
-        {/* Races */}
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            {/* <RaceTable /> */}
-          </Paper>
-        </Grid>
+    <Grid container spacing={3}>
+      {/* Chart */}
+      <Grid item xs={12} md={8} lg={9}>
+        <Paper className={fixedHeightPaper}>
+          {/* <ResultChart /> */}
+        </Paper>
       </Grid>
-      <Box pt={4}>
-        <Copyright />
-      </Box>
-    </Container>
+      {/* Widgets */}
+      <Grid item xs={12} md={4} lg={3}>
+        <Paper className={fixedHeightPaper}>
+          {/* <Deposits /> */}
+        </Paper>
+      </Grid>
+      {/* Races */}
+      <Grid item xs={12}>
+        <Paper className={classes.paper}>
+          {/* <RaceTable /> */}
+        </Paper>
+      </Grid>
+    </Grid>
   );
 }
 
