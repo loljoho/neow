@@ -6,18 +6,20 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import RaceContainer from './containers/RaceContainer';
-import OverviewContainer from './containers/OverviewContainer';
+import RacePage from './pages/RacePage';
+import OverviewPage from './pages/OverviewPage';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" render={() => (<OverviewContainer />)} />
-        <Route path="/race" render={() => (<RaceContainer />)} />
-        <Redirect to="/" />
-      </Switch>
-    </Router>
+    <>
+      <Router>
+        <Switch>
+          <Route exact path="/" render={() => (<OverviewPage />)} />
+          <Route path="/race" render={() => (<RacePage />)} />
+          <Redirect to="/" />
+        </Switch>
+      </Router>
+    </>
   );
 }
 

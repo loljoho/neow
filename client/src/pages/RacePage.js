@@ -119,7 +119,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const RaceContainer = () => {
+export const RacePage = () => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
@@ -220,4 +220,4 @@ const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RaceContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(RacePage)
