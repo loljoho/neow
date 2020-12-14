@@ -22,7 +22,7 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from '../components/listItems';
+import { mainListItems, secondaryListItems } from './listItems';
 
 import RacePage from '../pages/RacePage';
 import OverviewPage from '../pages/OverviewPage';
@@ -31,7 +31,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="https://github.com/loljoho/neow">
         Nnnneeooww!
       </Link>{' '}
       {new Date().getFullYear()}
