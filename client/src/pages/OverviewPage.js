@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import ResultChart from '../components/ResultChart';
-import Deposits from '../components/Deposits';
+import RaceWidget from '../components/RaceWidget';
 import RaceTable from '../components/RaceTable';
 
 const useStyles = makeStyles((theme) => ({
@@ -34,7 +34,7 @@ export default function OverviewPage() {
       {/* Widgets */}
       <Grid item xs={12} md={4} lg={3}>
         <Paper className={fixedHeightPaper}>
-          <Deposits />
+          <RaceWidget />
         </Paper>
       </Grid>
       {/* Races */}
