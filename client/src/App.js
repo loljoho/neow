@@ -6,14 +6,14 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import Dashboard from './components/Dashboard';
 import RaceContainer from './containers/RaceContainer';
+import OverviewContainer from './containers/OverviewContainer';
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" render={() => (<Dashboard />)} />
+        <Route exact path="/" render={() => (<OverviewContainer />)} />
         <Route path="/race" render={() => (<RaceContainer />)} />
         <Redirect to="/" />
       </Switch>
